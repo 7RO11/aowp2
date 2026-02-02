@@ -1,4 +1,4 @@
-export default async function Home(props: PageProps<"/item/[segment]">) {
+export default async function Item(props: PageProps<"/item/[segment]">) {
   const { segment } = await props.params;
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
