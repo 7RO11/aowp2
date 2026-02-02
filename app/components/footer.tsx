@@ -20,7 +20,7 @@ export default function Footer() {
           Home
         </Link>
         <Link
-          href={"/index"}
+          href={"/windex"}
           className="underline hover:text-red-600 duration-200 ease-in-out pl-6"
         >
           Index
