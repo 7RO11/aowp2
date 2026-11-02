@@ -17,6 +17,18 @@
     background-color: var(--primary-dark);
     color: white;
   }
+  .bigLink:hover {
+    color: lightskyblue;
+    text-decoration: underline;
+  }
+  .bigLink:active {
+    color: red;
+    text-decoration: underline;
+  }
+  .bigLink {
+    color: white;
+    text-decoration: none;
+  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -29,5 +41,17 @@
   body {
     background-color: white;
     color: black;
+  }
+  .bigLink:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+  .bigLink:active {
+    color: red;
+    text-decoration: underline;
+  }
+  .bigLink {
+    color: black;
+    text-decoration: none;
   }
 }

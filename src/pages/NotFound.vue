@@ -3,10 +3,8 @@ import NavBar from '@/components/NavBar.vue'
 </script>
 
 <template>
-  <div>
-    <NavBar />
-    <h2>Hey user 👋 you lost?</h2>
-  </div>
+  <NavBar />
+  <h2>Hey user 👋 you lost?</h2>
 </template>
 
 <style scoped></style>
