@@ -8,10 +8,10 @@ const route = useRoute()
 <template>
   <NavBar />
   <div v-if="route.params.searchOption === 'type'">
-    <RouterLink to="/" class="bigLink"
+    <RouterLink to="/filter/1hb" class="bigLink"
       ><h2><img src="/public/icons/skull.png" />1 Handed Blunt</h2></RouterLink
     >
-    <RouterLink to="/" class="bigLink"
+    <RouterLink to="/filter/2hb" class="bigLink"
       ><h2><img src="/public/icons/oof.png" />2 Handed Blunt</h2></RouterLink
     >
     <RouterLink to="/" class="bigLink"

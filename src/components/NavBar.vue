@@ -9,7 +9,7 @@ const isLargeScreen = useMediaQuery('(min-width: 1024px)')
 <template>
   <div class="navbar">
     <RouterLink class="bigLink marginBig" to="/"><h1>AOWP</h1></RouterLink>
-    <div v-if="isLargeScreen" class="navbar">
+    <div v-if="isLargeScreen" class="navbar noBorder">
       <RouterLink class="bigLink marginSmall" to="/"><h2>Home</h2></RouterLink>
       <RouterLink class="bigLink marginSmall" to="/about"><h2>About</h2></RouterLink>
       <RouterLink class="bigLink marginSmall" to="/index"><h2>Index</h2></RouterLink>
@@ -40,6 +40,9 @@ const isLargeScreen = useMediaQuery('(min-width: 1024px)')
   align-items: baseline;
   border-bottom: 2px solid var(--border-color);
   width: 100%;
+}
+.noBorder {
+  border: 0;
 }
 .marginBig {
   margin-right: 1.5%;

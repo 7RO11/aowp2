@@ -12,7 +12,7 @@ import { RouterLink } from 'vue-router'
     ><h2><span>✚</span> Search by profession</h2></RouterLink
   >
   <RouterLink to="/search/level" class="bigLink"
-    ><h2><span>⤵︎</span> Search by level floor</h2></RouterLink
+    ><h2><span>🡳</span> Search by level floor</h2></RouterLink
   >
   <RouterLink to="/search/zone" class="bigLink"
     ><h2><span>⚲</span>  Search by dungeon</h2></RouterLink

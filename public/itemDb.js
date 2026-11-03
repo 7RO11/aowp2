@@ -1,0 +1,47 @@
+export const itemDb = [
+  {
+    iconSrc: 'skull',
+    name: 'Howling Skull',
+    levelFloor: '25',
+    description:
+      '...is the fate of the Unbeliever. Their anguished screams shall echo through eternity... ',
+    nodrop: true,
+    from: 'Drops from Reverend Gulard, Exarch Ecclese, Exarch Pilvar, Defender of the Three, Exarch Li-Po in TOTW.',
+    patch: 'base',
+    ql: '1',
+    slot: '3',
+    value: '1',
+    equipTime: '2',
+    attackTime: '1',
+    rechargeTime: '1',
+    range: '3',
+    clip: '0',
+    ammo: '0',
+    minimumDamage: '28',
+    maximumDamage: '112',
+    criticalModifier: '6',
+    damageType: 'Melee',
+    maximumBeneficialSkill: '700',
+    initiative: 'Melee',
+    multiRequirement: '112',
+    attackSkills: {
+      '1h Blunt': '100',
+    },
+    defenseSkills: {
+      0: '100',
+    },
+    specials: {
+      'Fast Attack': '1001 6',
+    },
+    skillChecks: {
+      '1h Blunt': '305',
+      'Fast Attack': '116',
+    },
+    effects: {},
+    rollable: false,
+    profs: [],
+    location: 'totw',
+    type: '1hb',
+    id: '204750',
+  },
+]
