@@ -14,6 +14,7 @@ const router = createRouter({
     { path: '/search/:searchOption', component: SearchPage },
     { path: '/filter/:filterOption', component: FilterPage },
     { path: '/item/:itemId', component: ItemPage },
+    { path: '/item/:itemId/:patch', component: ItemPage },
     { path: '/:catchAll(.*)*', component: NotFound },
   ],
 })

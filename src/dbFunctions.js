@@ -1,7 +1,7 @@
-import { itemDb } from '../public/itemDb'
+import { itemDb } from '../itemDb'
 
 export function getType(type) {
-  // returns all the weapons of a specific type
+  // returns all the weapons of a specific type.
   let filteredDb = []
   for (const item of itemDb) {
     if (item.type === type) {
@@ -11,11 +11,11 @@ export function getType(type) {
   return filteredDb
 }
 
-export function getItem(id) {
-  // returns a single item object from id
+export function getItem(id, isRebalance = true) {
+  // returns a single item object from id. picks either pre or post rebalance version of items if 2 are filtered
   let itemObject
   for (const item of itemDb) {
-    if (item.id === id) {
+    if (item.id === id && item.isRebalance === isRebalance) {
       itemObject = item
     }
   }
@@ -37,4 +37,24 @@ export function parseEvadeShorthand(number) {
     return 'Duck Explosions'
   }
   return false
+}
+
+export function extractSpecials(skillChecks, attackTime) {
+  let specialsObject = {}
+  for (const skill in skillChecks) {
+    if (skill === 'Fast Attack') {
+      specialsObject['Fast Attack'] = calculateFastAttackFling(Number(attackTime))
+    }
+  }
+  return specialsObject
+}
+
+// copied from tinkertools formulas
+// https://github.com/TheTinkeringIdiot/Tinkertools/blob/main/frontend/src/services/game-utils.ts
+
+export function calculateFastAttackFling(attackTime) {
+  // skill is how much fast attack/fling required to reach speed cap, cap is seconds
+  let skill = Math.round((attackTime * 16 - 5 - 1) * 100) + 1
+  let cap = Math.floor(5 + attackTime)
+  return { skill, cap }
 }

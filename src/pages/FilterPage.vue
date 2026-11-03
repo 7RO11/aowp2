@@ -14,7 +14,7 @@ const route = useRoute()
     :key="item.id"
     v-for="item in getType(route.params.filterOption)"
     ><h2>
-      <img src="/public/icons/skull.png" />{{ item.name }}
+      <img :src="`/icons/${item.iconSrc}.png`" />{{ item.name }}
       <span>🡳{{ item.levelFloor }}</span>
     </h2></RouterLink
   >
