@@ -5,7 +5,13 @@ export function getType(type) {
   let filteredDb = []
   for (const item of itemDb) {
     if (item.type === type) {
-      filteredDb.push(item)
+      if (item.isMultiplePatches) {
+        if (!item.isRebalance) {
+          filteredDb.push(item)
+        }
+      } else {
+        filteredDb.push(item)
+      }
     }
   }
   return filteredDb
@@ -54,7 +60,7 @@ export function extractSpecials(skillChecks, attackTime) {
 
 export function calculateFastAttackFling(attackTime) {
   // skill is how much fast attack/fling required to reach speed cap, cap is seconds
-  let skill = Math.round((attackTime * 16 - 5 - 1) * 100) + 1
+  let skill = Math.round((attackTime * 16 - 6) * 100) + 1
   let cap = Math.floor(5 + attackTime)
   return { skill, cap }
 }

@@ -3,11 +3,13 @@ export const itemDb = [
     iconSrc: 'skull',
     name: 'Howling Skull',
     levelFloor: '25',
+    isMultiplePatches: false,
     description:
       '...is the fate of the Unbeliever. Their anguished screams shall echo through eternity... ',
     proc: '',
-    nodrop: true,
+    IsNodrop: true,
     from: 'Drops from Reverend Gulard, Exarch Ecclese, Exarch Pilvar, Defender of the Three, Exarch Li-Po in TOTW.',
+    isRebalance: true,
     patch: 0,
     ql: '1',
     slot: '3',
@@ -29,9 +31,6 @@ export const itemDb = [
     },
     defenseSkills: {
       0: '100',
-    },
-    specials: {
-      'Fast Attack': '1000 6',
     },
     skillChecks: {
       '1h Blunt': '305',
@@ -77,9 +76,6 @@ export const itemDb = [
     defenseSkills: {
       0: '100',
     },
-    specials: {
-      'Fast Attack': '1800 6.5',
-    },
     skillChecks: {
       '2h Blunt': '351',
       'Fast Attack': '201',
@@ -89,8 +85,8 @@ export const itemDb = [
     profs: [],
     location: 'steps',
     expansion: 'base',
-    type: '1hb',
-    id: '204750',
+    type: '2hb',
+    id: '274955',
   },
   {
     iconSrc: 'rod',
@@ -133,7 +129,7 @@ export const itemDb = [
     profs: [],
     location: 'steps',
     expansion: 'base',
-    type: '1hb',
-    id: '204750',
+    type: '2hb',
+    id: '274955',
   },
 ]
