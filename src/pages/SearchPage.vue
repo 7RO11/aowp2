@@ -14,46 +14,46 @@ const route = useRoute()
     <RouterLink to="/filter/2hb" class="bigLink"
       ><h2><img src="/icons/oof.png" />2 Handed Blunt</h2></RouterLink
     >
-    <RouterLink to="/" class="bigLink"
+    <RouterLink to="/filter/1he" class="bigLink"
       ><h2><img src="/icons/oof.png" />1 Handed Edged</h2></RouterLink
     >
-    <RouterLink to="/" class="bigLink"
+    <RouterLink to="/filter/2he" class="bigLink"
       ><h2><img src="/icons/oof.png" />2 Handed Edged</h2></RouterLink
     >
-    <RouterLink to="/" class="bigLink"
+    <RouterLink to="/filter/martial-arts" class="bigLink"
       ><h2><img src="/icons/oof.png" />Martial Arts</h2></RouterLink
     >
-    <RouterLink to="/" class="bigLink"
+    <RouterLink to="/filter/melee-energy" class="bigLink"
       ><h2><img src="/icons/oof.png" />Melee Energy</h2></RouterLink
     >
-    <RouterLink to="/" class="bigLink"
+    <RouterLink to="/filter/piercing" class="bigLink"
       ><h2><img src="/icons/oof.png" />Piercing</h2></RouterLink
     >
-    <RouterLink to="/" class="bigLink"
+    <RouterLink to="/filter/assault-rifle" class="bigLink"
       ><h2><img src="/icons/oof.png" />Assault Rifle</h2></RouterLink
     >
-    <RouterLink to="/" class="bigLink"
+    <RouterLink to="/filter/bow" class="bigLink"
       ><h2><img src="/icons/oof.png" />Bow</h2></RouterLink
     >
-    <RouterLink to="/" class="bigLink"
+    <RouterLink to="/filter/grenade" class="bigLink"
       ><h2><img src="/icons/oof.png" />Grenade</h2></RouterLink
     >
-    <RouterLink to="/" class="bigLink"
+    <RouterLink to="/filter/pistol" class="bigLink"
       ><h2><img src="/icons/oof.png" />Pistol</h2></RouterLink
     >
-    <RouterLink to="/" class="bigLink"
+    <RouterLink to="/filter/ranged-energy" class="bigLink"
       ><h2><img src="/icons/oof.png" />Ranged Energy</h2></RouterLink
     >
-    <RouterLink to="/" class="bigLink"
+    <RouterLink to="/filter/rifle" class="bigLink"
       ><h2><img src="/icons/oof.png" />Rifle</h2></RouterLink
     >
-    <RouterLink to="/" class="bigLink"
+    <RouterLink to="/filter/shotgun" class="bigLink"
       ><h2><img src="/icons/oof.png" />Shotgun</h2></RouterLink
     >
-    <RouterLink to="/" class="bigLink"
+    <RouterLink to="/filter/sub-machine-gun" class="bigLink"
       ><h2><img src="/icons/oof.png" />Sub-Machine Gun</h2></RouterLink
     >
-    <RouterLink to="/" class="bigLink"
+    <RouterLink to="/filter/miscellaneous" class="bigLink"
       ><h2><img src="/icons/oof.png" />Miscellaneous</h2></RouterLink
     >
   </div>

@@ -1,6 +1,13 @@
 <script setup>
 import NavBar from '@/components/NavBar.vue'
-import { extractSpecials, getItem, parseEvadeShorthand } from '@/dbFunctions'
+import {
+  extractSpecials,
+  getItem,
+  parseDropsShorthand,
+  parseEvadeShorthand,
+  parseExpacShorthand,
+  parseSlotShorthand,
+} from '@/dbFunctions'
 import { watch } from 'vue'
 import { useRoute } from 'vue-router'
 
@@ -30,8 +37,8 @@ watch(
   </h2>
   <h3>{{ item.description }}</h3>
   <h3 v-if="item.proc">{{ item.proc }}</h3>
-  <h3>[{{ item.IsNodrop ? 'NODROP' : 'YESDROP' }}]</h3>
-  <h3>{{ item.from }}</h3>
+  <h3>[{{ item.IsNodrop ? 'NODROP' : 'YESDROP' }}] [{{ parseExpacShorthand(item.expansion) }}]</h3>
+  <h3>{{ parseDropsShorthand(item.from) }}</h3>
   <table>
     <tbody :key="route.params">
       <tr v-if="item.isMultiplePatches">
@@ -48,9 +55,15 @@ watch(
           <td>Retail / 18.5+</td>
         </RouterLink>
       </tr>
+      <tr v-if="!item.isMultiplePatches && !item.isRebalance">
+        <td>Patch</td>
+        <td>Project Rubi-ka only</td>
+      </tr>
       <tr>
         <td>QL</td>
-        <td>{{ item.ql }}</td>
+        <td>
+          <span v-if="item.minQl">{{ item.minQl }}-</span>{{ item.ql }}
+        </td>
       </tr>
       <tr>
         <td>Equip Time</td>
@@ -89,6 +102,10 @@ watch(
         <td>{{ item.maximumBeneficialSkill }}</td>
       </tr>
       <tr>
+        <td>Item Slot</td>
+        <td>{{ parseSlotShorthand(item.slot) }}</td>
+      </tr>
+      <tr v-if="item.slot == '1' || item.slot == '3'">
         <td>Dual Wield Requirement</td>
         <td>{{ item.multiRequirement }}</td>
       </tr>
@@ -132,7 +149,16 @@ watch(
       <tr>
         <th>Specials</th>
       </tr>
-      <tr :key="key" v-for="(values, key) in extractSpecials(item.skillChecks, item.attackTime)">
+      <tr
+        :key="key"
+        v-for="(values, key) in extractSpecials(
+          item.skillChecks,
+          item.attackTime,
+          item.rechargeTime,
+          item.cycles.fa,
+          item.cycles.burst,
+        )"
+      >
         <td>{{ key }}</td>
         <td>{{ values.skill }} for {{ values.cap }}s</td>
       </tr>
