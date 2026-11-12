@@ -33,7 +33,7 @@ watch(
 <template>
   <NavBar />
   <h2>
-    <img :src="`/icons/${item.iconSrc}.png`" />{{ item.name }}<span>🡳{{ item.levelFloor }}</span>
+    <img :src="`/icons/${item.iconSrc}.png`" />{{ item.name }}<span>{{ item.levelFloor }}</span>
   </h2>
   <h3>{{ item.description }}</h3>
   <h3 v-if="item.proc">{{ item.proc }}</h3>

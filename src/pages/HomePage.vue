@@ -5,27 +5,20 @@ import { RouterLink } from 'vue-router'
 
 <template>
   <NavBar />
-  <RouterLink to="/search/type" class="bigLink"
-    ><h2><span>⚔︎</span> Search by weapon type</h2></RouterLink
-  >
-  <RouterLink to="/search/profession" class="bigLink"
-    ><h2><span>✚</span> Search by profession</h2></RouterLink
-  >
-  <RouterLink to="/search/level" class="bigLink"
-    ><h2><span>🡳</span> Search by level floor</h2></RouterLink
-  >
-  <RouterLink to="/search/zone" class="bigLink"
-    ><h2><span>⚲</span>  Search by dungeon</h2></RouterLink
-  >
-  <RouterLink to="/search/raid" class="bigLink"
-    ><h2><span>🗪</span>  Search by raid</h2></RouterLink
-  >
+  <RouterLink to="/search/type" class="bigLink"><h2>Search by weapon type</h2></RouterLink>
+  <RouterLink to="/search/profession" class="bigLink"><h2>Search by profession</h2></RouterLink>
+  <RouterLink to="/search/level" class="bigLink"><h2>Search by level floor</h2></RouterLink>
+  <RouterLink to="/search/zone" class="bigLink"><h2>Search by zone</h2></RouterLink>
   <RouterLink to="/search/expansion-pack" class="bigLink"
-    ><h2><span>$</span>  Search by expansion pack</h2></RouterLink
+    ><h2>Search by expansion pack</h2></RouterLink
   >
-  <RouterLink to="/search/custom" class="bigLink"
-    ><h2><span>✈︎</span> Search Project Rubi-ka custom items</h2></RouterLink
+  <RouterLink to="/filter/project-rubi-ka" class="bigLink"
+    ><h2>Search Project Rubi-ka custom items</h2></RouterLink
   >
 </template>
 
-<style scoped></style>
+<style scoped>
+h2 {
+  display: flex;
+}
+</style>
