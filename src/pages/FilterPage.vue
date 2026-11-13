@@ -36,7 +36,7 @@ const filterType = searchIntoFilter(route.params.filterOption)
       v-for="item in getProfession(route.params.filterOption)"
       ><h2>
         <img :src="`/icons/${item.iconSrc}.png`" />{{ item.name }}
-        <span>{{ item.levelFloor }}</span>
+        {{ item.levelFloor }}
       </h2></RouterLink
     >
   </div>
@@ -48,7 +48,7 @@ const filterType = searchIntoFilter(route.params.filterOption)
       v-for="item in getFloor(route.params.filterOption)"
       ><h2>
         <img :src="`/icons/${item.iconSrc}.png`" />{{ item.name }}
-        <span>{{ item.levelFloor }}</span>
+        {{ item.levelFloor }}
       </h2></RouterLink
     >
   </div>
@@ -60,7 +60,7 @@ const filterType = searchIntoFilter(route.params.filterOption)
       v-for="item in getZone(route.params.filterOption)"
       ><h2>
         <img :src="`/icons/${item.iconSrc}.png`" />{{ item.name }}
-        <span>{{ item.levelFloor }}</span>
+        {{ item.levelFloor }}
       </h2></RouterLink
     >
   </div>
@@ -72,7 +72,7 @@ const filterType = searchIntoFilter(route.params.filterOption)
       v-for="item in getExpansion(route.params.filterOption)"
       ><h2>
         <img :src="`/icons/${item.iconSrc}.png`" />{{ item.name }}
-        <span>{{ item.levelFloor }}</span>
+        {{ item.levelFloor }}
       </h2></RouterLink
     >
     >
@@ -85,7 +85,7 @@ const filterType = searchIntoFilter(route.params.filterOption)
       v-for="item in getProjectRK()"
       ><h2>
         <img :src="`/icons/${item.iconSrc}.png`" />{{ item.name }}
-        <span>{{ item.levelFloor }}</span>
+        {{ item.levelFloor }}
       </h2></RouterLink
     >
   </div>

@@ -7,6 +7,8 @@ import {
   parseEvadeShorthand,
   parseExpacShorthand,
   parseSlotShorthand,
+  parseUniverseShorthand,
+  universeIntoLink,
 } from '@/dbFunctions'
 import { watch } from 'vue'
 import { useRoute } from 'vue-router'
@@ -39,23 +41,27 @@ watch(
   <h3 v-if="item.proc">{{ item.proc }}</h3>
   <h3>[{{ item.IsNodrop ? 'NODROP' : 'YESDROP' }}] [{{ parseExpacShorthand(item.expansion) }}]</h3>
   <h3>{{ parseDropsShorthand(item.from) }}</h3>
-  <table>
+  <table class="bigItemTable">
     <tbody :key="route.params">
       <tr v-if="item.isMultiplePatches">
+        <!-- items that exist on both servers in different versions  -->
         <td>Patch</td>
-        <RouterLink v-if="item.isRebalance" :to="`/item/${item.id}/pre`">
-          <td>Project Rubi-ka / Pre 18.5</td>
-        </RouterLink>
-        <td v-if="item.isRebalance">||</td>
-        <td v-if="item.isRebalance">Retail / 18.5+</td>
-
-        <td v-if="!item.isRebalance">Project Rubi-ka / Pre 18.5</td>
-        <td v-if="!item.isRebalance">||</td>
-        <RouterLink v-if="!item.isRebalance" :to="`/item/${item.id}/post`">
-          <td>Retail / 18.5+</td>
-        </RouterLink>
+        <td v-if="item.isRebalance">
+          <RouterLink v-if="item.isRebalance" :to="`/item/${item.id}/pre`">
+            <span>Project Rubi-ka / Pre 18.5</span>
+          </RouterLink>
+          Retail / 18.5+
+        </td>
+        <!-- switch between the two active patch buttons -->
+        <td v-if="!item.isRebalance">
+          Project Rubi-ka / Pre 18.5
+          <RouterLink v-if="!item.isRebalance" :to="`/item/${item.id}/post`">
+            <span>Retail / 18.5+</span>
+          </RouterLink>
+        </td>
       </tr>
-      <tr v-if="!item.isMultiplePatches && !item.isRebalance">
+      <!-- items that only exist on prk -->
+      <tr v-if="item.expansion === '6'">
         <td>Patch</td>
         <td>Project Rubi-ka only</td>
       </tr>
@@ -164,6 +170,66 @@ watch(
       </tr>
     </tbody>
   </table>
+  <table>
+    <tbody>
+      <tr>
+        <th>Relevent Links</th>
+      </tr>
+      <tr>
+        <td v-if="item.aoUniverse">AO-Universe</td>
+        <td v-if="item.aoUniverse">
+          <a
+            :href="`https://www.ao-universe.com/guides/${universeIntoLink(item.aoUniverse)}`"
+            target="blank"
+            >{{ parseUniverseShorthand(item.aoUniverse) }}</a
+          >
+        </td>
+      </tr>
+      <tr v-if="item.expansion !== '6'">
+        <td>Auno</td>
+        <td>
+          <a :href="`https://auno.org/ao/db.php?id=${item.id}`" target="blank">Auno Item Page</a>
+          (default retail)
+        </td>
+      </tr>
+      <tr v-if="item.expansion !== '6' && route.params.patch !== 'pre'">
+        <td>AO Galaxy</td>
+        <td>
+          <a :href="`https://www.aogalaxy.com/_items/item.php?aoid=${item.id}`" target="blank"
+            >AO Galaxy Item Page</a
+          >
+          (only retail)
+        </td>
+      </tr>
+      <tr v-if="item.expansion !== '6' && route.params.patch !== 'pre'">
+        <td>TinkerTools Retail</td>
+        <td>
+          <a :href="`https://ao.tinkeringidiot.com/items/${item.id}`" target="blank"
+            >TinkerTools Item Page</a
+          >
+        </td>
+      </tr>
+      <tr v-if="!item.isRebalance">
+        <td>TinkerTools PRK</td>
+        <td>
+          <a :href="`https://prk.tinkeringidiot.com/items/${item.id}`" target="blank"
+            >TinkerTools Item Page</a
+          >
+        </td>
+      </tr>
+      <tr v-if="!item.isRebalance">
+        <td>Project Rubi-ka Portal</td>
+        <td>
+          <a
+            :href="`https://portal.project-rk.com/Servers/ItemDetail/ithaca/${item.id}`"
+            target="blank"
+            >Portal Item Page</a
+          >
+          (requires sign-in)
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </template>
 
 <style scoped>
@@ -172,5 +238,27 @@ img {
 }
 span {
   margin-left: 0.67%;
+}
+table {
+  border-spacing: 6.7px;
+  margin-bottom: 1%;
+}
+td {
+  padding: 2px 4px 2px 4px;
+}
+@media screen and (min-width: 1024px) {
+  td {
+    text-wrap: nowrap;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .bigItemTable tbody tr:nth-child(odd) {
+    background-color: var(--dark-table);
+  }
+}
+@media (prefers-color-scheme: light) {
+  .bigItemTable tbody tr:nth-child(odd) {
+    background-color: whitesmoke;
+  }
 }
 </style>

@@ -185,14 +185,8 @@ export function getProjectRK() {
   // returns all the custom prk items
   let filteredDb = []
   for (const item of itemDb) {
-    if (!item.isMultiplePatches && !item.isRebalance) {
-      if (item.isMultiplePatches) {
-        if (!item.isRebalance) {
-          filteredDb.push(item)
-        }
-      } else {
-        filteredDb.push(item)
-      }
+    if (item.expansion === '6') {
+      filteredDb.push(item)
     }
   }
   return filteredDb
@@ -294,6 +288,28 @@ export function parseDropsShorthand(string) {
     return 'This is a rollable, shop buyable, common loot pool item.'
   }
   return false
+}
+
+export function parseUniverseShorthand(string) {
+  // returns an string based on a shorthand. if its not found, return as is
+  if (string === 'totw') {
+    return 'Temple of Three Winds Loot Table'
+  }
+  if (string === 'steps') {
+    return 'Steps of Madness'
+  }
+  return string
+}
+
+export function universeIntoLink(string) {
+  // returns the end of a link based on a shorthand
+  if (string === 'totw') {
+    return 'classic-ao/location-guides-5/temple-of-three-winds-loot-table'
+  }
+  if (string === 'steps') {
+    return 'classic-ao/encounter-guides-3/low-level-encounter/steps-of-madness'
+  }
+  return ''
 }
 
 export function extractSpecials(skillChecks, attackTime, rechargeTime, fullAutoCycle, burstCycle) {
