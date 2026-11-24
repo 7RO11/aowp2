@@ -102,6 +102,9 @@ const route = useRoute()
     >
   </div>
   <div v-if="route.params.searchOption === 'level'">
+    <RouterLink to="/filter/1" class="bigLink"
+      ><h2><img src="/icons/oof.png" />1</h2></RouterLink
+    >
     <RouterLink to="/filter/15" class="bigLink"
       ><h2><img src="/icons/oof.png" />15</h2></RouterLink
     >

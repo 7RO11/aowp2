@@ -311,7 +311,7 @@ export const itemDb = [
     IsNodrop: true,
     from: 'Drops from Reverend Dashell in TOTW.',
     isRebalance: false,
-    minQl: '0',
+    minQl: '',
     ql: '100',
     slot: '1',
     equipTime: '1',

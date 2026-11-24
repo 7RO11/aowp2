@@ -41,7 +41,7 @@ watch(
   <h3 v-if="item.proc">{{ item.proc }}</h3>
   <h3>[{{ item.IsNodrop ? 'NODROP' : 'YESDROP' }}] [{{ parseExpacShorthand(item.expansion) }}]</h3>
   <h3>{{ parseDropsShorthand(item.from) }}</h3>
-  <table class="bigItemTable">
+  <table>
     <tbody :key="route.params">
       <tr v-if="item.isMultiplePatches">
         <!-- items that exist on both servers in different versions  -->
@@ -242,6 +242,7 @@ span {
 table {
   border-spacing: 6.7px;
   margin-bottom: 1%;
+  min-width: 12%;
 }
 td {
   padding: 2px 4px 2px 4px;
@@ -249,15 +250,16 @@ td {
 @media screen and (min-width: 1024px) {
   td {
     text-wrap: nowrap;
+    min-width: 12em;
   }
 }
 @media (prefers-color-scheme: dark) {
-  .bigItemTable tbody tr:nth-child(odd) {
+  tr:nth-child(even) {
     background-color: var(--dark-table);
   }
 }
 @media (prefers-color-scheme: light) {
-  .bigItemTable tbody tr:nth-child(odd) {
+  tr:nth-child(even) {
     background-color: whitesmoke;
   }
 }

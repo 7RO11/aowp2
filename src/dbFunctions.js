@@ -210,6 +210,31 @@ export function getItem(id, isRebalance = true) {
   return false
 }
 
+export function filterBySpecial(items, specials, isSpecialFiltered) {
+  // called after a "get" function, items is an array of objects, specials is an object
+  // if its the first time navigating then return as is
+  // if theres no specials return as is
+  // adds an another layer of filtering
+  // oh no
+  let filteredDb = []
+  if (!isSpecialFiltered) {
+    return items
+  }
+  if (!specials) {
+    return items
+  }
+  for (const item of items) {
+    let itemSpecials = extractSpecialsShort(item.skillChecks)
+    if (
+      JSON.stringify(Object.entries(itemSpecials).sort()) ===
+      JSON.stringify(Object.entries(specials).sort())
+    ) {
+      filteredDb.push(item)
+    }
+  }
+  return filteredDb
+}
+
 export function parseEvadeShorthand(number) {
   // returns an evade skill based on a number. if its not a single digit, return as is. number is a string
   if (number.length > 1) {
@@ -337,6 +362,35 @@ export function extractSpecials(skillChecks, attackTime, rechargeTime, fullAutoC
     }
     if (skill === 'Aimed Shot') {
       specialsObject['Aimed Shot'] = calculateAimedShot(Number(attackTime), Number(rechargeTime))
+    }
+  }
+  return specialsObject
+}
+
+export function extractSpecialsShort(skillChecks) {
+  // simplified version of extract specials that only returns if they are available
+  let specialsObject = {}
+  for (const skill in skillChecks) {
+    if (skill === 'Fast Attack') {
+      specialsObject['isFastAttack'] = true
+    }
+    if (skill === 'Brawl') {
+      specialsObject['isBrawl'] = true
+    }
+    if (skill === 'Dimach') {
+      specialsObject['isDimach'] = true
+    }
+    if (skill === 'Fling Shot') {
+      specialsObject['isFlingShot'] = true
+    }
+    if (skill === 'Full Auto') {
+      specialsObject['isFullAuto'] = true
+    }
+    if (skill === 'Burst') {
+      specialsObject['isBurst'] = true
+    }
+    if (skill === 'Aimed Shot') {
+      specialsObject['isAimedShot'] = true
     }
   }
   return specialsObject
